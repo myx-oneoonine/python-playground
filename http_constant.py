@@ -1,5 +1,7 @@
 from http import HTTPStatus
 
-print(HTTPStatus.OK.value)
-print(HTTPStatus.OK.phrase)
-print(HTTPStatus.OK.description)
+print(HTTPStatus(HTTPStatus.BAD_REQUEST).value)
+print(HTTPStatus(HTTPStatus.BAD_REQUEST).phrase)
+print(HTTPStatus(HTTPStatus.BAD_REQUEST).description)
+
+print(HTTPStatus(HTTPStatus.OK).name)

@@ -8,4 +8,4 @@ class Color(Enum):
 # print(hasattr(Color,"RED"))
 # print(Color.RED.value)
 
-print(Color['REDs'])
+print(Color['RED'].value)
