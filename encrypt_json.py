@@ -1,3 +1,5 @@
+import base64
+
 PAYLOAD = {
     "num": 12345,
     "bool": True,
@@ -50,5 +52,8 @@ def encrypt_json(json: dict, modifier) -> dict:
 
 
 if __name__ == '__main__':
-    print("xxx", type(lambda s: str(s) + "!!"))
-    print(encrypt_json(PAYLOAD, lambda s: str(s) + "!!"))
+    def modifier(s): return base64.b64encode(str(s).encode())
+
+
+    # print(encrypt_json(PAYLOAD, lambda s: base64.b64encode(str(s).encode())))
+    print(encrypt_json(PAYLOAD, modifier))
