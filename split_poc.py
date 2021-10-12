@@ -4,8 +4,7 @@ print(len(x))
 y = "123".split(".")
 print(y)
 
-a = "Nonfe"
-b = None
+content_type = "application/json; charset=utf-8, application/json+*".replace(";", ",").split(",")
 
-if a and b is None:
-    print("ksk")
+print("application/json" in content_type)
+# print(True in [("application/json" in c.split(";")) for c in content_type])
