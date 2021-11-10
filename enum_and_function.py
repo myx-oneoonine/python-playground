@@ -44,15 +44,14 @@ class BankCode(Enum):
     # def apim_bank_payment(self):
     #     return self.value.apim_bank_payment
 
-    class UrlType(Enum):
-        MOBILE = "MOBILE"
-        WEB = "WEB"
+    UrlType = Enum("UrlType", "MOBILE WEB")
 
-    KBANK = UrlType.MOBILE, "004"
-    BBL = UrlType.WEB, "002"
-    SCB = UrlType.WEB, "014"
-    KTB = UrlType.MOBILE, "006"
-    KMA = None, None
+    # url_type, apim bankcode, mpay bankcode
+    KBANK = UrlType.MOBILE, "004", "100"
+    BBL = UrlType.WEB, "002", "200"
+    SCB = UrlType.WEB, "014", "201"
+    KTB = UrlType.MOBILE, "006", "300"
+    KMA = None, None, None
 
     def url_type(self):
         return self.value[0].name
@@ -60,6 +59,12 @@ class BankCode(Enum):
     def apim_bank_code(self):
         return self.value[1]
 
+    def mpay_bank_code(self):
+        return self.value[2]
+
 
 print(BankCode.KBANK.url_type())
 print(BankCode.KBANK.apim_bank_code())
+print(BankCode.KBANK.mpay_bank_code())
+
+
